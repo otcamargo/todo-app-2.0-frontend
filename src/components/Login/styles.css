@@ -55,7 +55,8 @@
   margin-bottom: 24px;
 }
 
-#page-login .form-box form .field input[type=text] {
+#page-login .form-box form .field input[type=text],
+#page-login .form-box form .field input[type=password] {
   flex: 1;
   background: #F0F0F5;
   border-radius: 8px;
