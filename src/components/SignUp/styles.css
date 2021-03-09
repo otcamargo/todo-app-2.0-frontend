@@ -1,10 +1,10 @@
-#page-login {
+#page-signup {
   height: 100vh;
 
   background: url('../../assets/login-background.svg') no-repeat 700px 200px;
 }
 
-#page-login .content {
+#page-signup .content {
   width: 100%;
   height: 100%;
   max-width: 1300px;
@@ -16,7 +16,7 @@
   align-items: flex-start;
 }
 
-#page-login .content header {
+#page-signup .content header {
   padding: 4px;
   margin: 48px 0 20px;
   background: #dedede;
@@ -27,7 +27,7 @@
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-#page-login .form-box {
+#page-signup .form-box {
   padding: 64px;
   background: #dedede;
   border-radius: 8px;
@@ -37,17 +37,17 @@
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-#page-login .form-box form h1 {
+#page-signup .form-box form h1 {
   font-size: 36px;
 }
 
-#page-login .form-box form fieldset {
+#page-signup .form-box form fieldset {
   margin-top: 40px;
   min-inline-size: auto;
   border: 0;
 }
 
-#page-login .form-box form .field {
+#page-signup .form-box form .field {
   flex: 1;
 
   display: flex;
@@ -55,8 +55,8 @@
   margin-bottom: 24px;
 }
 
-#page-login .form-box form .field input[type=text],
-#page-login .form-box form .field input[type=password] {
+#page-signup .form-box form .field input[type=text],
+#page-signup .form-box form .field input[type=password] {
   flex: 1;
   background: #F0F0F5;
   border-radius: 8px;
@@ -66,7 +66,7 @@
   color: #6C6C80;
 }
 
-#page-login .form-box form button {
+#page-signup .form-box form button {
   width: 260px;
   height: 56px;
   background: #F0F0F5;
@@ -82,10 +82,10 @@
   
 }
 
-#page-login .form-box form button:hover {
+#page-signup .form-box form button:hover {
   background: #2FB86E;
 }
 
-#page-login .form-box .signup-link {
+#page-signup .form-box .login-link {
   padding: 0 15px;
 }

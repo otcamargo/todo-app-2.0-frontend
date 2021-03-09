@@ -6,7 +6,7 @@ import api from '../../services/api';
 
 import './styles.css';
 
-const Login = () => {
+const SignUp = () => {
   const [formData, setFormData] = useState({
     username: '',
     password: ''
@@ -23,13 +23,18 @@ const Login = () => {
 
     // TODO: check if this is really necessary
     const { username, password } = formData;
+    const data = {
+      username,
+      password,
+      role: "ADMIN"
+    }
 
-    const res = await api.post('/auth/login', formData).then(res => res.data);
-    alert('Login efetuado!');
+    const res = await api.post('/user', data).then(res => res.data);
+    alert('Conta criada!');
   }
 
   return (
-    <div id="page-login">
+    <div id="page-signup">
       <div className="content">
         <header>
           <p>TODO APP 2.0</p>
@@ -37,7 +42,7 @@ const Login = () => {
 
         <div className="form-box">
           <form onSubmit={handleSubmit}>
-            <h1>Faça login ou crie uma conta</h1>
+            <h1>Crie sua conta</h1>
 
             <fieldset>
               <div className="field">
@@ -50,13 +55,13 @@ const Login = () => {
               </div>
 
               <button type="submit">
-                Fazer login
+                Criar conta
               </button>
             </fieldset>
           </form><br/>
-          <div className="signup-link">
-            <Link to="/signup">
-              <strong>Criar conta </strong>
+          <div className="login-link">
+            <Link to="/login">
+              <strong>Já tem uma conta? Faça login! </strong>
               <span>
                 <FiLogIn />
               </span>
@@ -69,4 +74,4 @@ const Login = () => {
   )
 }
 
-export default Login;
+export default SignUp;
