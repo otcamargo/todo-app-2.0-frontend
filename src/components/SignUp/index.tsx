@@ -12,6 +12,8 @@ const SignUp = () => {
     password: ''
   });
 
+  const [signUpMessage, setSignUpMessage] = useState({ success: "", error: "" });
+
   function handleInputChange(event: ChangeEvent<HTMLInputElement>) {
     const { name, value } = event.target;
 
@@ -27,10 +29,21 @@ const SignUp = () => {
       username,
       password,
       role: "ADMIN"
-    }
+    };
 
-    const res = await api.post('/user', data).then(res => res.data);
-    alert('Conta criada!');
+    if (!username || !password) {
+      setSignUpMessage({ success: "", error: "Preencha todos os dados para se cadastrar"});
+      alert(signUpMessage.error);
+    } else {
+      try {
+        const res = await api.post('/user', data).then(res => res.data);
+        setSignUpMessage({ success: "Conta criada com sucesso!", error: ""});
+        alert(signUpMessage.success);
+      } catch (err) {
+        setSignUpMessage({ success: "", error: "Ocorreu um erro ao registrar sua conta"});
+        alert(signUpMessage.error);
+      }
+    }
   }
 
   return (
@@ -60,7 +73,7 @@ const SignUp = () => {
             </fieldset>
           </form><br/>
           <div className="login-link">
-            <Link to="/login">
+            <Link to="/">
               <strong>Já tem uma conta? Faça login! </strong>
               <span>
                 <FiLogIn />

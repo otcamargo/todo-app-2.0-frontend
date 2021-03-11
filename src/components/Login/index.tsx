@@ -3,6 +3,7 @@ import {FiLogIn} from 'react-icons/fi';
 import { Link } from 'react-router-dom';
 
 import api from '../../services/api';
+import { login } from '../../services/auth';
 
 import './styles.css';
 
@@ -11,6 +12,8 @@ const Login = () => {
     username: '',
     password: ''
   });
+
+  const [loginMessage, setLoginMessage] = useState({ success: "", error: "" });
 
   function handleInputChange(event: ChangeEvent<HTMLInputElement>) {
     const { name, value } = event.target;
@@ -24,8 +27,18 @@ const Login = () => {
     // TODO: check if this is really necessary
     const { username, password } = formData;
 
-    const res = await api.post('/auth/login', formData).then(res => res.data);
-    alert('Login efetuado!');
+    if (!username || !password) {
+      setLoginMessage({ success: "", error: "Preencha e-mail e senha para continuar!" });
+      alert(loginMessage.error);
+    } else {
+      try {
+        const res = await api.post('/auth/login', formData).then(res => res.data);
+        login(res.token);
+      } catch (err) {
+        setLoginMessage({ success: "", error:"Houve um problema com o login, verifique suas credenciais" });
+        alert(loginMessage.error);
+      }
+    }
   }
 
   return (
